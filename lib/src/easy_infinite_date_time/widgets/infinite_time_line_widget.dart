@@ -161,6 +161,11 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
     } else if (widget.selectionMode != oldWidget.selectionMode) {
       _jumpToInitialOffset();
     }
+
+    if (widget.firstDate != oldWidget.firstDate || widget.lastDate != oldWidget.lastDate) {
+      _daysCount =
+        EasyDateUtils.calculateDaysCount(widget.firstDate, widget.lastDate);
+    }
   }
 
   /// Attaches the [EasyInfiniteDateTimelineController] to the [InfiniteTimeLineWidget].
